@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIOM.AI | Voice AI Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="sidebar" id="historySidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">🕒 Search History</div>
+            <button class="close-sidebar" id="closeSidebarBtn">×</button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+        <button class="clear-history" id="clearHistoryBtn">Clear All</button>
+    </div>
+
+    <nav>
+        <div class="nav-left">
+            <div class="logo" id="logoBtn">
+                <svg class="logo-icon" viewBox="0 0 24 24" style="width: 35px; height: 35px; min-width: 35px;">
+                    <circle cx="12" cy="12" r="2" fill="white"/>
+                    <line x1="2" y1="12" x2="10" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="2" y1="12" x2="6" y2="8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="2" y1="12" x2="6" y2="16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                AXIOM 
+            </div>
+            <button class="history-btn" id="historyBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                History
+            </button>
+        </div>
+    </nav>
+
+    <div class="container" id="mainContainer">
+        <h1 id="heroTitle">What do you want to know?</h1>
+        <p class="subtitle" id="heroSubtitle">Search at the speed of thought.</p>
+
+        <div class="input-wrapper">
+            <input type="text" class="search-bar" id="userInput" placeholder="Ask anything...">
+            <div class="actions">
+                <button class="clear-btn" id="clearBtn" title="Clear">✕</button>
+                <button class="icon-btn" id="voiceSearchBtn" title="Voice Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg></button>
+                <button class="icon-btn primary" id="searchBtn" title="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+            </div>
+        </div>
+
+        <div class="quick-prompts" id="quickPrompts">
+            <div class="chip" data-query="Latest Tech News">📰 Latest Tech News</div>
+            <div class="chip" data-query="History of India">🇮🇳 History of India</div>
+            <div class="chip" data-query="React vs Vue">💻 React vs Vue</div>
+        </div>
+
+        <div class="results-container" id="resultsArea">
+            <div style="margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-dim);">Sources</div>
+            <div class="sources-row" id="sourcesContainer"></div>
+
+            <div class="answer-box">
+                <div class="answer-header">
+                    <span style="font-size: 1.5rem; font-family: 'Space Grotesk'; color:white;">AXIOM ANSWER </span>
+                    <div class="header-actions">
+                        <button class="tool-btn" id="speakBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                            Listen
+                        </button>
+                        <button class="tool-btn" id="copyBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+                <div class="ai-text" id="aiOutput">Generating...</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span class="footer-link" id="rateUsBtn">⭐ Rate Us</span>
+        <span>|</span>
+        <a href="mailto:contact@nova.com" class="footer-link">📩 Contact Us: 9716947628 </a>
+        <span>|</span>
+        <span>MADE WITH ❤️ BY <strong>[SUMIT]</strong></span>
+    </footer>
+
+    <div class="modal-overlay" id="feedbackModal">
+        <div class="modal">
+            <h2>Rate Your Experience</h2>
+            <p style="color:#aaa;">How accurate was NOVA?</p>
+            <div class="stars" id="starRating">
+                <span data-value="1">★</span><span data-value="2">★</span><span data-value="3">★</span><span data-value="4">★</span><span data-value="5">★</span>
+            </div>
+            <div id="ratingMsg" style="color: var(--accent); min-height: 20px;"></div>
+            <button class="close-modal" id="closeModalBtn">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
