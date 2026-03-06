@@ -1,5 +1,5 @@
 // API KEYS
-const GROQ_API_KEY = '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';
+const GROQ_API_KEY = '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';
 const TAVILY_API_KEY = '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';
 
 // DOM ELEMENTS
@@ -219,3 +219,4 @@ function rate(n) {
     document.getElementById('ratingMsg').innerText = "Thank you for the feedback!";
     setTimeout(closeModal, 1500);
 }
+
