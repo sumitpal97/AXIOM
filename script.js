@@ -1,5 +1,5 @@
 // API KEYS
-const GROQ_API_KEY = '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';
+const GROQ_API_KEY = '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';
 const TAVILY_API_KEY = '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';
 
 // DOM ELEMENTS
