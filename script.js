@@ -1,6 +1,6 @@
 // API KEYS
 const GROQ_API_KEY = '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';
-const TAVILY_API_KEY = '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';
+const TAVILY_API_KEY = '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';
 
 // DOM ELEMENTS
 const userInput = document.getElementById('userInput');
